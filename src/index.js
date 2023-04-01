@@ -65,7 +65,7 @@ class Degit extends EventEmitter {
 					);
 				});
 
-				await d.clone(dest).catch(err => {
+				await d.clone(path.resolve(dest, action.dest || '.')).catch(err => {
 					console.error(chalk.red(`! ${err.message}`));
 					process.exit(1);
 				});
